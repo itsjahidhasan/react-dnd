@@ -36,32 +36,10 @@ export const DnD = () => {
     },
   ]);
 
-  const getTaskPos = (id, children = []) => {
-    let pos = -1;
-    if (children?.length) {
-      children.map((t) => {
-        if (t.id == id) {
-          pos = id;
-        } else {
-          if (t?.children?.length) getTaskPos(id, t?.children);
-        }
-      });
-    } else {
-      tasks.map((t) => {
-        if (t.id == id) {
-          pos = id;
-        } else {
-          if (t?.children?.length) getTaskPos(id, t?.children);
-        }
-      });
-    }
-
-    return pos;
-  };
+  const getTaskPos = (id) => tasks.findIndex((t) => t.id === id);
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
-    console.log({ active, over });
 
     if (active.id === over.id) {
       return;
