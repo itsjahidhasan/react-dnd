@@ -10,7 +10,7 @@ export const Column = ({ tasks }) => {
       return (
         <>
           <Task id={task?.id} title={task?.title} key={task.id} />
-          <div className="column">
+          <div className="column-child">
             <SortableContext
               items={task?.children}
               strategy={verticalListSortingStrategy}
