@@ -1,10 +1,12 @@
 import "./App.css";
-import { ParentChildDnd } from "./complex-dnd";
+import { DragAndDrop } from "./basic-drag-drop";
 
 function App() {
   return (
     <>
-      <ParentChildDnd />
+      {/* <DnD /> */}
+      <DragAndDrop />
+      {/* <MultipleContainers trashable /> */}
     </>
   );
 }
