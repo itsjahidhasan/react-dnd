@@ -1,11 +1,11 @@
 import "./App.css";
-import { DragAndDrop } from "./basic-drag-drop";
+import { MutatedSortableTree } from "./sortable-tree";
 
 function App() {
   return (
     <>
       {/* <DnD /> */}
-      <DragAndDrop />
+      <MutatedSortableTree />
       {/* <MultipleContainers trashable /> */}
     </>
   );
