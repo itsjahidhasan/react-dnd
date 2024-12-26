@@ -7,3 +7,6 @@
   gap: 50px;
   margin-top: 10px;
 }
+.dnd-sortable-tree_simple_tree-item {
+  margin-bottom: 10px;
+}

@@ -4,6 +4,11 @@ import { SimpleTreeItemWrapper, SortableTree } from "dnd-kit-sortable-tree";
 export const MutatedSortableTree = () => {
   const [items, setItems] = useState(initialViableMinimalData);
 
+  const handleItems = (params) => {
+    console.log({ params });
+    setItems(params);
+  };
+
   return (
     <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
       <div
@@ -19,9 +24,8 @@ export const MutatedSortableTree = () => {
       >
         <SortableTree
           items={items}
-          onItemsChanged={setItems}
+          onItemsChanged={handleItems}
           TreeItemComponent={TreeItem}
-          //   keepGhostInPlace={true}
         />
       </div>
     </div>
@@ -32,15 +36,7 @@ const TreeItem = React.forwardRef((props, ref) => {
   //   console.log({ props });
 
   return (
-    <SimpleTreeItemWrapper
-      {...props}
-      ref={ref}
-      //   disableInteraction={props.item?.isActive}
-      //   disableSelection={props.item?.isActive}
-      disableSorting={props.item?.isActive}
-      //   collapsed
-      //   showDragHandle
-    >
+    <SimpleTreeItemWrapper {...props} ref={ref}>
       <div
         style={{
           display: "flex",
@@ -67,10 +63,28 @@ const initialViableMinimalData = [
     value: "Jane",
     isActive: true,
     children: [
-      { id: 4, value: "John" },
-      { id: 5, value: "Sally" },
+      {
+        id: 4,
+        value: "John",
+      },
+      {
+        id: 5,
+        value: "Sally",
+      },
     ],
   },
-  { id: 2, value: "Fred", children: [{ id: 6, value: "Eugene" }] },
-  { id: 3, value: "Helen" },
+  {
+    id: 2,
+    value: "Fred",
+    children: [
+      {
+        id: 6,
+        value: "Eugene",
+      },
+    ],
+  },
+  {
+    id: 3,
+    value: "Helen",
+  },
 ];
